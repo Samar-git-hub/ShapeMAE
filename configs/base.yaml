@@ -1,0 +1,83 @@
+# Shared configuration. Arm files override ONLY `arm`, `mask.strategy` and `adaptive.enabled`;
+# everything else must stay identical or the comparison is void.
+seed: 0
+arm: base
+device: auto
+
+data:
+  cache_dir: data/cache
+  test_cache_dir: data/cache_test
+  coco_ann: data/coco/annotations/instances_train2017.json
+  coco_ann_test: data/coco/annotations/instances_val2017.json
+  coco_images: data/coco
+
+  cache_size: 256       # 320 would need 6.1 GB of disk; 256 needs 3.9 GB
+  img_size: 224
+  patch_size: 16        # -> 14x14 grid, L = 196
+
+  # 15,000 is close to the ceiling set by the curation gate: the joint constraint
+  # (coverage >= r + 0.10 AND largest <= r) peaks at r = 0.40 with 15,661 eligible images.
+  subset_seed: 51
+  n_train: 13500
+  n_val: 1500
+  max_instances: 40
+  patch_assign_thresh: 0.25
+
+  min_instances: 2
+  min_instance_patches: 2
+  cov_max: 0.95
+  largest_instance_max: 0.70
+  min_side_px: 200
+
+  rrc_scale: [0.5, 1.0]
+  rrc_ratio: [0.75, 1.3333]
+  hflip: true
+
+  num_workers: 4        # each worker loads its own CUDA libraries; 4 outruns the GPU
+
+model:
+  embed_dim: 192        # ViT-Tiny
+  depth: 12
+  num_heads: 3
+  decoder_embed_dim: 128
+  decoder_depth: 4
+  decoder_num_heads: 4
+  mlp_ratio: 4.0
+  norm_pix_loss: true
+
+mask:
+  strategy: random      # random | shuffled | instance | adaptive
+  ratio: 0.40           # fallback only; the ratio resolved by curation wins
+  ratio_override: null
+
+adaptive:
+  enabled: false
+  momentum: 0.90
+  warmup_epochs: 40
+  tau_start: 0.0
+  tau_end: 4.0
+  w_min: 0.25
+  w_max: 4.0
+  min_patches_per_cat: 32
+  loss_clip_q: 0.99
+
+train:
+  epochs: 400
+  batch_size: 128       # 256 needs more VRAM than a 6 GB card has left beside the desktop
+  base_lr: 2.4e-3       # effective lr = base_lr * batch_size / 256 = 1.2e-3
+  weight_decay: 0.05
+  betas: [0.9, 0.95]
+  warmup_epochs: 40
+  min_lr: 0.0
+  amp: true
+  grad_clip: 3.0
+  log_every: 20
+  eval_every: 5
+  ckpt_every: 10
+  out_dir: runs
+
+eval:
+  mask_bank: data/cache/eval_masks.npz
+  bank_seed: 12345
+  knn_k: 20
+  bootstrap: 1000

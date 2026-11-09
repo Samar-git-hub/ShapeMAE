@@ -1,0 +1,7 @@
+# Arm C: whole-instance masking with EMA-adaptive category weights.
+_base: base.yaml
+arm: adaptive
+mask:
+  strategy: adaptive
+adaptive:
+  enabled: true

@@ -1,0 +1,8 @@
+# Arm A2: shape-matched control. Whole-instance masks borrowed from a DIFFERENT image in the
+# batch, so blob size and contiguity match arm B while alignment with this image is gone.
+_base: base.yaml
+arm: shuffled
+mask:
+  strategy: shuffled
+adaptive:
+  enabled: false

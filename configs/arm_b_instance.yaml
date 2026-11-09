@@ -1,0 +1,7 @@
+# Arm B: whole-instance masking from the image's own objects, uniform category weights.
+_base: base.yaml
+arm: instance
+mask:
+  strategy: instance
+adaptive:
+  enabled: false

@@ -1,0 +1,7 @@
+# Arm A: baseline. Uniform random patch masking at the same budget as every other arm.
+_base: base.yaml
+arm: random
+mask:
+  strategy: random
+adaptive:
+  enabled: false
