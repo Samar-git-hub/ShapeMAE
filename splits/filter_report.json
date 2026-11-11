@@ -1,0 +1,115 @@
+{
+  "n_scanned": 118287,
+  "n_passed_structure": 84621,
+  "resolved_mask_ratio": 0.4,
+  "resolved_cov_min": 0.5,
+  "margin": 0.1,
+  "n_available": 15661,
+  "n_selected": 15000,
+  "ratio_table": [
+    {
+      "r": 0.75,
+      "cov_min": 0.85,
+      "n_coverage": 2788,
+      "n_joint": 2788
+    },
+    {
+      "r": 0.7,
+      "cov_min": 0.8,
+      "n_coverage": 4811,
+      "n_joint": 4811
+    },
+    {
+      "r": 0.65,
+      "cov_min": 0.75,
+      "n_coverage": 7344,
+      "n_joint": 6762
+    },
+    {
+      "r": 0.6,
+      "cov_min": 0.7,
+      "n_coverage": 10226,
+      "n_joint": 8630
+    },
+    {
+      "r": 0.55,
+      "cov_min": 0.65,
+      "n_coverage": 13942,
+      "n_joint": 10705
+    },
+    {
+      "r": 0.5,
+      "cov_min": 0.6,
+      "n_coverage": 18174,
+      "n_joint": 12939
+    },
+    {
+      "r": 0.45,
+      "cov_min": 0.55,
+      "n_coverage": 22591,
+      "n_joint": 14555
+    },
+    {
+      "r": 0.4,
+      "cov_min": 0.5,
+      "n_coverage": 27382,
+      "n_joint": 15661
+    },
+    {
+      "r": 0.35,
+      "cov_min": 0.45,
+      "n_coverage": 31790,
+      "n_joint": 15622
+    }
+  ],
+  "selected_coverage_mean": 0.643,
+  "selected_largest_mean": 0.2739,
+  "selected_n_inst_mean": 6.4,
+  "coverage_hist": {
+    "bins": [
+      0.0,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95,
+      1.0
+    ],
+    "counts": [
+      2968,
+      6557,
+      7068,
+      6853,
+      6122,
+      6424,
+      6099,
+      5620,
+      5120,
+      4408,
+      4791,
+      4417,
+      4232,
+      3716,
+      2882,
+      2533,
+      2023,
+      1551,
+      1237,
+      0
+    ]
+  }
+}

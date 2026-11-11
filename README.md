@@ -9,12 +9,6 @@ Four arms hide exactly the same number of patches, and five different heads then
 result was not the one the idea predicts: **object-shaped holes help a little, but placing them on the real objects
 makes the features worse.**
 
-> **AI Assistance**
->
-> Portions of this codebase and documentation were developed with the assistance of Large Language Models (LLMs). All
-> generated code has been reviewed, tested, and manually verified by the authors to ensure correctness and
-> reproducibility.
-
 This project grew out of a capstone with Kartika Dhonde, Shlok Doshi and Kshitij Jhalak, guided by Hiral Modi.
 
 ![Every arm hides exactly 78 of 196 patches](results/figures/F1_masking_examples.png)
@@ -253,7 +247,7 @@ can be moved freely. Recreate `.venv` after a move. `data/` and `runs/` are not 
 
 ## Reproducing the results
 
-Run one heavy job at a time. Times are for the RTX 4050 Laptop GPU.
+Run one heavy job at a time. Times are for the RTX 4050 Laptop GPU. The files in `splits/` let you check the curated subset without rerunning curation.
 
 1. Download [annotations_trainval2017.zip](http://images.cocodataset.org/annotations/annotations_trainval2017.zip) and
    extract it so that `data/coco/annotations/instances_train2017.json` exists.
@@ -279,6 +273,11 @@ Run one heavy job at a time. Times are for the RTX 4050 Laptop GPU.
    ```
 
 To develop without touching the test set, use `--split val` in step 4.
+
+## AI Usage
+
+Parts of the code and documentation were written with the help of AI tools. All code was reviewed and tested by
+the authors, and the experiments, results and conclusions are our own.
 
 ## Licences
 
